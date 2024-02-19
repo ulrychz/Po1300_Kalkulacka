@@ -14,18 +14,29 @@
 <div>
     <label>Výsledek <input @bind="vysledek" readonly /></label>
 </div>
+<label><input type="checkbox" @bind-value="kontrolaPreteceni"/> Kontrola přetečení</label>
 
 @code {
     short cislo1;//podjhk
     short cislo2;
     short vysledek;
-
+    bool kontrolaPreteceni = false;
     /// <summary>
     /// Soucet 2 promenych
     /// </summary>
     private void Soucet()
     {
-        vysledek = (short)(cislo1 + cislo2);
+        if (kontrolaPreteceni)
+        {
+            checked
+            {
+                vysledek = (short)(cislo1 + cislo2);
+            }
+        }
+        else
+        {
+            vysledek = (short)(cislo1 + cislo2);
+        }
     }
     /// <summary>
     /// Rozdíl  2 čísel
